@@ -1,22 +1,27 @@
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { HomeLayout, Home } from "./pages";
 import "@styles/App.css";
-import LoadCircle from "@components/LoadingCircle.jsx";
 
 function App() {
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <HomeLayout />,
+      children: [
+        {
+          index: true,
+          element: <Home />,
+        },
+        // {
+        //   path: "about-us",
+        //   element: <AboutUs />,
+        // },
+      ],
+    },
+  ]);
   return (
     <>
-      <div className="h-screen flex justify-center items-center">
-        <div>
-          <p className="text-2xl text-white bg-slate-400 p-3">
-            Team Visionaries from Afriment building setlinn,{" "}
-            <span className="italic font-bold text-amber-300">
-              the world largest migration community platform.{" "}
-            </span>
-            <span className="mx-3 inline-block align-top">
-              <LoadCircle size={10} iconSize={22} speed={7} items={8} />
-            </span>
-          </p>
-        </div>
-      </div>
+      <RouterProvider router={router} />
     </>
   );
 }
