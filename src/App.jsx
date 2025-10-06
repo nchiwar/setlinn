@@ -12,10 +12,10 @@ function App() {
           index: true,
           element: <Home />,
         },
-        // {
-        //   path: "about-us",
-        //   element: <AboutUs />,
-        // },
+        {
+          path: "about-us",
+          element: <AboutUs />,
+        },
       ],
     },
   ]);
