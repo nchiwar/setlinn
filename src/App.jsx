@@ -13,8 +13,24 @@ function App() {
           element: <Home />,
         },
         {
-          path: "about-us",
-          element: <AboutUs />,
+          path: "campus-tour",
+          element: <CampusTour />,
+        },
+        {
+          path: "resource",
+          element: <Resource />,
+        },
+        {
+          path: "community",
+          element: <Community />,
+        },
+        {
+          path: "blog-post",
+          element: <BlogPost />,
+        },
+        {
+          path: "journey-tracker",
+          element: <JourneyTracker />,
         },
       ],
     },

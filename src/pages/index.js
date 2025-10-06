@@ -1,2 +1,7 @@
 export { default as HomeLayout } from "./HomeLayOut.jsx";
 export { default as Home } from "./Home.jsx";
+export { default as CampusTour } from "./CampusTour.jsx";
+export { default as Resource } from "./Resource.jsx";
+export { default as Community } from "./Community.jsx";
+export { default as BlogPost } from "./BlogPost.jsx";
+export { default as JourneyTracker } from "./JourneyTracker.jsx";
