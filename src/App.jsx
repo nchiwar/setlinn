@@ -1,5 +1,13 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { HomeLayout, Home } from "./pages";
+import {
+  HomeLayout,
+  Home,
+  CampusTour,
+  Resource,
+  Community,
+  BlogPost,
+  JourneyTracker,
+} from "./pages";
 import "@styles/App.css";
 
 function App() {
@@ -12,10 +20,26 @@ function App() {
           index: true,
           element: <Home />,
         },
-        // {
-        //   path: "about-us",
-        //   element: <AboutUs />,
-        // },
+        {
+          path: "campus-tour",
+          element: <CampusTour />,
+        },
+        {
+          path: "resource",
+          element: <Resource />,
+        },
+        {
+          path: "community",
+          element: <Community />,
+        },
+        {
+          path: "blog-post",
+          element: <BlogPost />,
+        },
+        {
+          path: "journey-tracker",
+          element: <JourneyTracker />,
+        },
       ],
     },
   ]);

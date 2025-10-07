@@ -1,9 +1,11 @@
 import { Outlet } from "react-router-dom";
+// import Navigation from "@components/header/Navigation";
+import NavMenu from "@components/header/NavMenu";
 
 function HomeLayOut() {
   return (
     <div>
-      {/* <nav>This is nav</nav> */}
+      <NavMenu />
       <Outlet />
       {/* <footer>This is the footer</footer> */}
     </div>
