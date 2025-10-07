@@ -1,5 +1,13 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { HomeLayout, Home } from "./pages";
+import {
+  HomeLayout,
+  Home,
+  CampusTour,
+  Resource,
+  Community,
+  BlogPost,
+  JourneyTracker,
+} from "./pages";
 import "@styles/App.css";
 
 function App() {
