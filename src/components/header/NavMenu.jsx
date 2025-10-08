@@ -1,15 +1,16 @@
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 import { Menu } from "lucide-react";
 import { Button } from "@components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@components/ui/sheet";
 import Logo from "./Logo";
 
 const NavigationLinks = [
-  { href: "/", label: "Home" },
-  { href: "/services", label: "Services" },
-  { href: "/campus-tour", label: "Campus Tour" },
-  { href: "/resource", label: "Resource" },
-  { href: "/community", label: "Community" },
+  { to: "/", label: "Home" }, // Use 'to' instead of 'href' for NavLink
+  { to: "/services", label: "Services" },
+  { to: "/campus-tour", label: "Campus Tour" },
+  { to: "/resource", label: "Resource" },
+  { to: "/community", label: "Community" },
 ];
 
 function NavMenu() {
@@ -19,19 +20,26 @@ function NavMenu() {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
-  const NavLink = ({ href, label, onClick }) => (
-    <a
-      href={href}
+  const NavLinkComponent = ({ to, label, onClick }) => (
+    <NavLink
+      to={to} // NavLink uses 'to' for the destination path
       onClick={onClick}
-      className="text-gray-600 hover:text-teal-700 transition-colors font-medium text-[16px] p-2 rounded-lg"
+      className={({ isActive }) =>
+        // isActive is a function property provided by NavLink
+        `font-medium text-[16px] p-2 rounded-lg transition-colors ${
+          isActive
+            ? "text-teal-700 bg-teal-50" // Styles for the active link
+            : "text-gray-600 hover:text-teal-700" // Styles for inactive links
+        }`
+      }
     >
       {label}
-    </a>
+    </NavLink>
   );
 
   return (
     <nav className="border-b bg-white sticky top-0 left-0 right-0 z-50">
-      <div className="max-w-9xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         {/* 1. Logo */}
         <div className="flex-shrink-0">
           <span className="">
@@ -42,7 +50,7 @@ function NavMenu() {
         {/* 2. Desktop Navigation Links (Hidden on small screens) */}
         <div className="hidden lg:flex lg:space-x-8 items-center">
           {NavigationLinks.map((link) => (
-            <NavLink key={link.label} {...link} />
+            <NavLinkComponent key={link.label} {...link} />
           ))}
         </div>
 
@@ -89,16 +97,16 @@ function NavMenu() {
                 {/* <h4 className="text-lg font-semibold border-b pb-2 mb-2">
                   Navigation
                 </h4> */}
-                {/* <div className="flex-shrink-0">
+                <div className="flex flex-row items-center space-x-3 mb-6 px-2">
                   <Logo />
-                  <span className="text-lg font-semibold border-b pb-2 mb-2">
+                  <span className="text-2xl font-semibold text-[#207681]">
                     Setlinn
                   </span>
-                </div> */}
+                </div>
 
                 {/* Mobile Links */}
                 {NavigationLinks.map((link) => (
-                  <NavLink
+                  <NavLinkComponent
                     key={link.label}
                     {...link}
                     onClick={() => setIsMobileMenuOpen(false)}
