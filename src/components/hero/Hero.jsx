@@ -378,8 +378,6 @@ import campus from "@images/campus_tour.png";
 import resources2 from "@images/resources2.png";
 import community from "@images/community-support.png";
 
-// --- CAROUSEL DATA AND SLIDE CONTENT (Keeping as-is) ---
-// ... (slidesData and SlideContent remain the same) ...
 const slidesData = [
   {
     id: 1,
