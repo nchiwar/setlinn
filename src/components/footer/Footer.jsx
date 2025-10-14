@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
+import logo from "@images/logo.png";
 
 const Footer = () => {
   return (
@@ -8,8 +9,8 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           <div className="space-y-4">
             <div className="flex items-center gap-2  font-bold text-xl">
-              {/* <GraduationCap className="w-8 h-8" /> */}
-              <span>Campus Tours</span>
+              <img src={logo} alt="Setlinn" className="w-10 h-10 bg-white" />
+              <span>Setlinn</span>
             </div>
             <p className=" text-sm">
               Your global community for navigating life abroad with confidence.
