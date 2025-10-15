@@ -7,3 +7,4 @@ export { default as Community } from "./Community.jsx";
 export { default as BlogPost } from "./BlogPost.jsx";
 export { default as JourneyTracker } from "./JourneyTracker.jsx";
 export { default as ResetPassword } from "./ResetPassword.jsx";
+export { default as Feed } from "./Feed.jsx";
