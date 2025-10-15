@@ -1,13 +1,17 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import {
   HomeLayout,
+  DashboardLayout,
   Home,
   CampusTour,
   Resource,
   Community,
   BlogPost,
   JourneyTracker,
+  ResetPassword,
+  Feed,
 } from "./pages";
+import ProtectedRoute from "@components/protected-route/ProtectedRoute";
 import "@styles/App.css";
 
 function App() {
@@ -41,6 +45,22 @@ function App() {
           element: <JourneyTracker />,
         },
       ],
+    },
+
+    {
+      element: <ProtectedRoute />,
+      children: [
+        {
+          path: "feed",
+          element: <DashboardLayout />,
+          children: [{ index: true, element: <Feed /> }],
+        },
+      ],
+    },
+
+    {
+      path: "reset-password",
+      element: <ResetPassword />,
     },
   ]);
   return (
