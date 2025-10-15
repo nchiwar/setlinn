@@ -8,7 +8,7 @@ function HomeLayout() {
   const [triggerAuthModal, setTriggerAuthModal] = useState(null); // null | "signin" | "signup"
 
   useEffect(() => {
-    // 👇 If redirected from ProtectedRoute, open Sign In modal automatically
+    // If redirected from ProtectedRoute, open Sign In modal automatically
     if (location.state?.showAuthModal) {
       setTriggerAuthModal("signin");
       window.history.replaceState({}, document.title); // clears the state
