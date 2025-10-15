@@ -9,6 +9,7 @@ import {
   BlogPost,
   JourneyTracker,
   ResetPassword,
+  Feed,
 } from "./pages";
 import ProtectedRoute from "@components/protected-route/ProtectedRoute";
 import "@styles/App.css";
@@ -50,9 +51,9 @@ function App() {
       element: <ProtectedRoute />,
       children: [
         {
-          path: "dashboard",
+          path: "feed",
           element: <DashboardLayout />,
-          children: [{ index: true, element: <Community /> }],
+          children: [{ index: true, element: <Feed /> }],
         },
       ],
     },
