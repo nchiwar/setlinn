@@ -102,9 +102,9 @@ function NavMenu({ triggerAuthModal }) {
               <Button
                 variant="outline"
                 className="text-[#207681] border-[#207681] cursor-pointer"
-                onClick={() => navigate("/dashboard")}
+                onClick={() => navigate("/feed")}
               >
-                Dashboard
+                Feed
               </Button>
               <Button
                 onClick={handleSignOut}
@@ -179,11 +179,11 @@ function NavMenu({ triggerAuthModal }) {
                         variant="outline"
                         className="w-full text-[#207681] border-[#207681] cursor-pointer"
                         onClick={() => {
-                          navigate("/dashboard");
+                          navigate("/feed");
                           setIsMobileMenuOpen(false);
                         }}
                       >
-                        Dashboard
+                        Feed
                       </Button>
                       <Button
                         onClick={handleSignOut}
