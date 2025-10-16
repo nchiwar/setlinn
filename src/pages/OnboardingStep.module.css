@@ -1,0 +1,53 @@
+.wrapper {
+  background: #ffffff;
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+}
+
+.card {
+  width: min(900px, 100%);
+  background: linear-gradient(135deg, #f8fafc 0%, #e2f4f3 40%, #fef6ee 100%);
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 1.25rem;
+  box-shadow: 0 10px 30px rgba(2, 6, 23, 0.08);
+}
+
+.header { text-align: center; margin-bottom: 1rem; }
+.progress { color: #207681; font-weight: 700; }
+.title { font-size: clamp(1.25rem, 1rem + 1.2vw, 1.8rem); color: #0f172a; margin: .25rem 0; font-weight: 800; }
+.subtitle { color: #475569; margin: 0; }
+
+.optionsGrid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .75rem; margin-top: .75rem; }
+.option,
+.optionActive {
+  background: #fff;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  padding: .9rem .75rem;
+  text-align: center;
+}
+.optionActive { outline: 2px solid #207681; border-color: #207681; }
+.optionIcon { font-size: 1.5rem; }
+.optionLabel { display: block; color: #0f172a; font-weight: 700; margin-top: .25rem; }
+
+.form { display: grid; gap: .6rem; margin-top: .5rem; }
+.label { color: #334155; font-weight: 600; }
+.input { height: 44px; border-radius: 10px; border: 1px solid #cbd5e1; padding: 0 .75rem; background: #fff; }
+
+.footerRow { display: flex; justify-content: space-between; align-items: center; margin-top: .9rem; }
+.primaryBtn { background: #207681; color: #fff; border-radius: 10px; height: 40px; padding: 0 1rem; font-weight: 700; }
+.secondaryBtn { border: 1px solid #207681; color: #207681; background: #fff; border-radius: 10px; height: 40px; padding: 0 1rem; font-weight: 700; }
+
+.quickGrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .75rem; margin-top: .5rem; }
+.quickCard { background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; }
+.linkCard { display: grid; place-items: center; height: 90px; text-decoration: none; color: #0f172a; font-weight: 700; }
+
+@media (max-width: 760px) {
+  .optionsGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .quickGrid { grid-template-columns: 1fr; }
+}
+
+

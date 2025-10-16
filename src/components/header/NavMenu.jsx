@@ -13,6 +13,7 @@ const NavigationLinks = [
   { to: "/services", label: "Services" },
   { to: "/campus-tour", label: "Campus Tour" },
   { to: "/resource", label: "Resource" },
+  { to: "/city-hub", label: "City Hub" },
   { to: "/community", label: "Community" },
 ];
 
