@@ -10,6 +10,7 @@ import {
   JourneyTracker,
   ResetPassword,
   Feed,
+  AdminPanel,
 } from "./pages";
 import ProtectedRoute from "@components/protected-route/ProtectedRoute";
 import "@styles/App.css";
@@ -44,6 +45,11 @@ function App() {
           path: "journey-tracker",
           element: <JourneyTracker />,
         },
+
+        {
+          path: "admin",
+          element: <AdminPanel />,
+        },
       ],
     },
 
@@ -51,9 +57,16 @@ function App() {
       element: <ProtectedRoute />,
       children: [
         {
-          path: "feed",
+          path: "dashboard",
           element: <DashboardLayout />,
-          children: [{ index: true, element: <Feed /> }],
+          children: [{ index: true, element: <Feed /> }, {
+          path: "/dashboard/campus-tour",
+          element: <CampusTour />,
+        },
+        { path: "/dashboard/resource",         
+          element: <Resource />,
+        },   
+       ],
         },
       ],
     },
