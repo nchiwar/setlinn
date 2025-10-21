@@ -1,0 +1,29 @@
+.wrapper { background: linear-gradient(180deg, #0f766e 0%, #0ea5a6 40%, #f1f5f9 40%, #f1f5f9 100%); }
+.hero { width: min(1100px, 100%); margin: 0 auto; padding: 2rem 1rem 2.2rem; color: #fff; }
+.heroInner { max-width: 760px; }
+.title { font-size: clamp(1.7rem, 1.2rem + 2vw, 2.4rem); line-height: 1.1; margin: 0; }
+.subtitle { margin: .6rem 0 1.2rem; max-width: 58ch; }
+.searchRow { margin-top: .8rem; }
+.searchInput { width: 100%; max-width: 520px; height: 44px; border-radius: 12px; border: 1px solid rgba(255,255,255,.8); padding: 0 .9rem; background: rgba(255,255,255,.95); color: #0f172a; }
+
+.section { width: min(1100px, 100%); margin: 0 auto; padding: 1.2rem 1rem 2rem; }
+.sectionTitle { color: #ffffff; font-size: 1.5rem; font-weight: 800; margin: 0 0 .75rem; }
+.grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+
+.card { background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; display: grid; grid-template-rows: 140px auto; }
+.cardMedia { position: relative; }
+.cardMedia img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.badge { position: absolute; top: .5rem; right: .5rem; background: #fde68a; color: #92400e; border-radius: 999px; padding: .15rem .5rem; font-size: .75rem; font-weight: 700; }
+.cardBody { padding: .8rem .9rem 1rem; }
+.cardTitle { font-weight: 800; color: #0f172a; margin: 0; }
+.cardDesc { color: #475569; margin: .35rem 0 .6rem; }
+.metaRow { display: flex; gap: .75rem; color: #64748b; font-size: .9rem; }
+.cardCtas { margin-top: .7rem; display: flex; gap: .5rem; }
+.primaryCta { background: #207681; color: #fff; text-decoration: none; border-radius: 10px; height: 38px; display: inline-flex; align-items: center; padding: 0 .9rem; font-weight: 700; }
+.secondaryCta { border: 1px solid #207681; color: #207681; text-decoration: none; border-radius: 10px; height: 38px; display: inline-flex; align-items: center; padding: 0 .9rem; font-weight: 700; background: #fff; }
+
+.footerCta { margin-top: 1rem; background: #e2f3f3; border: 1px solid #bde1e1; border-radius: 12px; padding: .9rem; display: flex; align-items: center; justify-content: space-between; }
+
+@media (max-width: 960px) { .grid { grid-template-columns: 1fr; } }
+
+

@@ -6,11 +6,18 @@ import {
   CampusTour,
   Resource,
   Community,
+  Category,
   BlogPost,
   JourneyTracker,
   ResetPassword,
   Feed,
   AdminPanel,
+  CityHub,
+  OnboardingStep1,
+  OnboardingStep2,
+  OnboardingStep3,
+  OnboardingStep4,
+  OnboardingStep5,
 } from "./pages";
 import ProtectedRoute from "@components/protected-route/ProtectedRoute";
 import "@styles/App.css";
@@ -26,6 +33,26 @@ function App() {
           element: <Home />,
         },
         {
+          path: "onboarding/step-1",
+          element: <OnboardingStep1 />,
+        },
+        {
+          path: "onboarding/step-2",
+          element: <OnboardingStep2 />,
+        },
+        {
+          path: "onboarding/step-3",
+          element: <OnboardingStep3 />,
+        },
+        {
+          path: "onboarding/step-4",
+          element: <OnboardingStep4 />,
+        },
+        {
+          path: "onboarding/step-5",
+          element: <OnboardingStep5 />,
+        },
+        {
           path: "campus-tour",
           element: <CampusTour />,
         },
@@ -36,6 +63,14 @@ function App() {
         {
           path: "community",
           element: <Community />,
+        },
+        {
+          path: "city-hub",
+          element: <CityHub />,
+        },
+        {
+          path: "community/category/:slug",
+          element: <Category />,
         },
         {
           path: "blog-post",

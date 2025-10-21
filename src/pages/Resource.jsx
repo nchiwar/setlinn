@@ -1,56 +1,104 @@
-import ArticleCard from "@components/resources/ArticleCard";
-import SubscribeCard from "@components/resources/SubscribeCard";
+import React, { useMemo, useState } from "react";
+import styles from "./Resource.module.css";
+import heroIllustration from "../assets/images/resources2.png";
 
-// Sample data for the articles
-const articles = [
-  {
-    title: "City Registration",
-    description: "Complete your city registration efficiently",
-  },
-  {
-    title: "Student Job Rules",
-    description: "Understand the rules for Student Job",
-  },
-  {
-    title: "Residence Permit",
-    description: "Secure your residence permit with ease",
-  },
-  {
-    title: "Learn German Language Guide",
-    description: "Start learning German language with our guide",
-  },
+const allResources = [
+  { id: 1, icon: "🏢", badge: "Popular", title: "City Registration", desc: "Complete Anmeldung quickly with step‑by‑step instructions." },
+  { id: 2, icon: "🛂", badge: "Updated", title: "Residence Permit", desc: "Visa types, timelines and appointment tips." },
+  { id: 3, icon: "💼", badge: "New", title: "Student Jobs", desc: "Rules, taxes and where to find part‑time roles." },
+  { id: 4, icon: "❤️", badge: "", title: "Insurance & Healthcare", desc: "Public vs private, how to register with a GP." },
+  { id: 5, icon: "💶", badge: "", title: "Finance & Scholarships", desc: "Opening bank accounts and funding options." },
+  { id: 6, icon: "🏠", badge: "Popular", title: "Housing & Accommodation", desc: "How to find rooms and avoid scams." },
+  { id: 7, icon: "🗣️", badge: "", title: "Learn German", desc: "Course options and free practice resources." },
 ];
 
 function Resource() {
+  const [query, setQuery] = useState("");
+  const filtered = useMemo(() => {
+    if (!query) return allResources;
+    const q = query.toLowerCase();
+    return allResources.filter((r) =>
+      [r.title, r.desc].some((t) => t.toLowerCase().includes(q))
+    );
+  }, [query]);
+
   return (
-    // Max width container and padding for responsiveness
-    <div className="container mx-auto px-4 py-12 md:px-8 max-w-6xl">
-      {/* Main Grid: Sets up the two-column layout on medium screens and up. 
-          The grid uses a custom column ratio: 3 parts for content, 1 part for sidebar. */}
-      <div className="grid grid-cols-1 md:grid-cols-4 md:gap-x-12">
-        {/* Articles Content Area (Takes 3/4 of the width on desktop) */}
-        <div className="md:col-span-3">
-          {/* Article Cards Grid: Two-column layout that becomes single-column on small screens */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-12">
-            {articles.map((article, index) => (
-              <ArticleCard
-                key={index}
-                title={article.title}
-                description={article.description}
-              />
-            ))}
+    <main className={styles.wrapper} aria-labelledby="resources-title">
+      {/* Header */}
+      <section className={styles.hero}>
+        <div className={styles.heroOverlay} aria-hidden="true" />
+        <div className={styles.heroInner}>
+          <h1 id="resources-title" className={styles.title}>Explore Essential Resources</h1>
+          <p className={styles.subtitle}>
+            Curated guides and tools to help you navigate every step of your journey. Verified by experts.
+          </p>
+
+          <div className={styles.searchRow}>
+            <label htmlFor="resource-search" className="sr-only">Search resources</label>
+            <input
+              id="resource-search"
+              type="search"
+              className={styles.searchInput}
+              placeholder="Search for guides, terms or topics..."
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+            />
+          </div>
+
+          <dl className={styles.stats} aria-label="Resource statistics">
+            <div className={styles.stat}><dd className={styles.statValue}>150+</dd><dt className={styles.statLabel}>Verified resources</dt></div>
+            <div className={styles.stat}><dd className={styles.statValue}>25k+</dd><dt className={styles.statLabel}>Downloads</dt></div>
+            <div className={styles.stat}><dd className={styles.statValue}>94%</dd><dt className={styles.statLabel}>Success rate</dt></div>
+          </dl>
+        </div>
+        <div className={styles.heroVisual} aria-hidden="true">
+          {/* Replace with a real illustration or SVG under src/assets/images */}
+          <img className={styles.heroImg} src={heroIllustration} alt="" />
+          <div className={styles.iconCluster}>
+            <span className={styles.iconBubble} title="Docs">📄</span>
+            <span className={styles.iconBubble} title="Visa">🛂</span>
+            <span className={styles.iconBubble} title="Housing">🏠</span>
+            <span className={styles.iconBubble} title="Health">❤️</span>
           </div>
         </div>
+      </section>
 
-        {/* Sidebar Area (Takes 1/4 of the width on desktop) */}
-        <aside className="md:col-span-1 mt-12 md:mt-0">
-          <SubscribeCard />
-        </aside>
-      </div>
+      {/* All Resources */}
+      <section className={styles.section} aria-labelledby="all-resources-heading">
+        <h2 id="all-resources-heading" className={`${styles.sectionTitle} ${styles.sectionTitleWhite}`}>All Resources</h2>
+        <p className={styles.sectionHint}>Click any card to access concise guides, forms, and step‑by‑step instructions.</p>
+        <div className={styles.cardGrid}>
+          {filtered.map((r) => (
+            <article key={r.id} className={styles.card}>
+              <header className={styles.cardHeader}>
+                <div className={styles.cardIcon} aria-hidden="true">{r.icon}</div>
+                {r.badge ? <span className={styles.badge}>{r.badge}</span> : null}
+              </header>
+              <h3 className={styles.cardTitle}>{r.title}</h3>
+              <p className={styles.cardDesc}>{r.desc}</p>
+              <a className={styles.linkButton} href={`/resources/${r.id}`}>Learn more</a>
+            </article>
+          ))}
+        </div>
+      </section>
 
-      {/* Optional: Add space at the bottom to match the image spacing */}
-      <div className="h-24"></div>
-    </div>
+      {/* Verified Banner */}
+      <section className={styles.section} aria-labelledby="verified-heading">
+        <div className={styles.banner} role="note" aria-labelledby="verified-heading">
+          <div className={styles.bannerIcon} aria-hidden="true">✅</div>
+          <div className={styles.bannerBody}>
+            <h3 id="verified-heading" className={styles.bannerTitle}>Verified & Trusted Information</h3>
+            <p className={styles.bannerDesc}>
+              Every guide on Setlinn is reviewed by community experts and verified by our editorial team. We update content when regulations change and cite official sources.
+            </p>
+            <div className={styles.bannerCtas}>
+              <a className={styles.primaryCta} href="/resources/request">Request a Resource</a>
+              <a className={styles.secondaryCta} href="/support">Contact Support</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
   );
 }
 
