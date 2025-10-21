@@ -94,12 +94,15 @@ function App() {
         {
           path: "dashboard",
           element: <DashboardLayout />,
-          children: [{ index: true, element: <Feed /> }, {
+          children: [{ index: true, element: <Community /> }, {
           path: "/dashboard/campus-tour",
           element: <CampusTour />,
         },
         { path: "/dashboard/resource",         
           element: <Resource />,
+        },
+        { path: "/dashboard/city-hub",         
+          element: <CityHub />,
         },   
        ],
         },
