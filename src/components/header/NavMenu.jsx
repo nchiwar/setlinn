@@ -103,9 +103,9 @@ function NavMenu({ triggerAuthModal }) {
               <Button
                 variant="outline"
                 className="text-[#207681] border-[#207681] cursor-pointer"
-                onClick={() => navigate("/feed")}
+                onClick={() => navigate("/dashboard")}
               >
-                Feed
+                Dashboard
               </Button>
               <Button
                 onClick={handleSignOut}
@@ -184,7 +184,7 @@ function NavMenu({ triggerAuthModal }) {
                           setIsMobileMenuOpen(false);
                         }}
                       >
-                        Feed
+                        Dashboard
                       </Button>
                       <Button
                         onClick={handleSignOut}

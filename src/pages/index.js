@@ -8,6 +8,7 @@ export { default as BlogPost } from "./BlogPost.jsx";
 export { default as JourneyTracker } from "./JourneyTracker.jsx";
 export { default as ResetPassword } from "./ResetPassword.jsx";
 export { default as Feed } from "./Feed.jsx";
+export { default as AdminPanel } from "./AdminPanel.jsx";
 export { default as Category } from "./Category.jsx";
 export { default as CityHub } from "./CityHub.jsx";
 export { default as OnboardingStep1 } from "./OnboardingStep1.jsx";
