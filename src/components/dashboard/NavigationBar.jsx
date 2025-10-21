@@ -5,7 +5,7 @@ import { Bell, User } from "lucide-react";
 
 const NavigationBar = () => {
   return (
-    <header className="sticky top-0 z-10 border-b bg-white w-full">
+    <header className="sticky top-0 z-10 border-b bg-white w-full pb-3">
       {/* Container with padding and flex layout */}
       <div className="flex h-16 items-center justify-between px-4 md:px-6">
 

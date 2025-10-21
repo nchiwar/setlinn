@@ -14,7 +14,7 @@ const NavigationLinks = [
   { to: "/campus-tour", label: "Campus Tour" },
   { to: "/resource", label: "Resource" },
   { to: "/city-hub", label: "City Hub" },
-  { to: "/community", label: "Community" },
+  { to: "/dashboard", label: "Community" },
 ];
 
 function NavMenu({ triggerAuthModal }) {

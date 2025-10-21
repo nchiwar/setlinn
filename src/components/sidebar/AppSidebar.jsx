@@ -28,7 +28,7 @@ const menuItems = [
   { to: "/dashboard", label: "Home", icon: Home },
   { to: "/dashboard/resource", label: "Explore", icon: Globe },
   { to: "/dashboard/campus-tour", label: "Campus Tour", icon: Map },
-  { to: "/dashboard/city-hubs", label: "City Hubs", icon: Flag },
+  { to: "/dashboard/city-hub", label: "City Hubs", icon: Flag },
   { to: "/dashboard/messages", label: "Messages", icon: Mail },
   { to: "/dashboard/profile", label: "Profile", icon: User },
 ];
@@ -48,13 +48,17 @@ export default function AppSidebarLayout({ children }) {
       {/* Sidebar Component */}
       <Sidebar collapsible="offcanvas" side="left" className="border-r">
         <SidebarHeader className="px-4 py-4">
-            <div className="flex flex-row items-center space-x-3 mb-6 px-2">
+            <div className="flex flex-row items-center space-x-3  px-2">
                 <Logo />
                 <span className="text-2xl font-semibold text-[#207681]">
                     Setlinn
                 </span>
             </div>
+            
         </SidebarHeader>
+        <Separator className="mb-6" />
+        
+        
 
         <SidebarContent>
           <SidebarMenu className="px-2 space-y-1">
