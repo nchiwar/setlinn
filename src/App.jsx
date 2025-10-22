@@ -82,8 +82,13 @@ function App() {
         },
 
         {
-          path: "admin",
-          element: <AdminPanel />,
+          element: <ProtectedRoute />,
+          children: [
+            {
+              path: "admin",
+              element: <AdminPanel />,
+            },
+          ],
         },
       ],
     },

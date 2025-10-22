@@ -180,7 +180,7 @@ function NavMenu({ triggerAuthModal }) {
                         variant="outline"
                         className="w-full text-[#207681] border-[#207681] cursor-pointer"
                         onClick={() => {
-                          navigate("/feed");
+                          navigate("/dashboard");
                           setIsMobileMenuOpen(false);
                         }}
                       >

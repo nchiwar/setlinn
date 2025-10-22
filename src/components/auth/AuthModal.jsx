@@ -48,6 +48,7 @@ const AuthModal = ({
     if (isOpen) checkSession();
   }, [isOpen, onAuthSuccess, onClose]);
 
+  // ✅ Handle Authentication (Sign In, Sign Up, Forgot Password)
   const handleAuthAction = async (e) => {
     e.preventDefault();
     setError("");
@@ -56,19 +57,43 @@ const AuthModal = ({
 
     try {
       if (isForgotPassword) {
-        // Handle password reset email
+        // Password reset flow
         const { error } = await supabase.auth.resetPasswordForEmail(email, {
           redirectTo: `${window.location.origin}/reset-password`,
         });
         if (error) throw error;
         setMessage("Password reset link sent! Please check your email.");
       } else if (isSignIn) {
-        //  Sign In
+        // Sign In
         const { error } = await supabase.auth.signInWithPassword({
           email,
           password,
         });
         if (error) throw error;
+
+        // Get user info
+        const {
+          data: { user },
+        } = await supabase.auth.getUser();
+
+        if (user) {
+          // Fetch user profile and role
+          const { data: profile, error: profileError } = await supabase
+            .from("profiles")
+            .select("role")
+            .eq("id", user.id)
+            .single();
+
+          if (profileError) console.error(profileError);
+
+          // Role-based redirection
+          if (profile?.role === "admin") {
+            window.location.href = "/admin";
+          } else {
+            window.location.href = "/dashboard";
+          }
+        }
+
         onAuthSuccess?.();
         onClose();
       } else {
@@ -76,16 +101,25 @@ const AuthModal = ({
         if (username.trim().length < 3)
           throw new Error("Full name must be at least 3 characters long.");
 
-        const { error } = await supabase.auth.signUp({
+        const {data, error } = await supabase.auth.signUp({
           email,
           password,
           options: {
-            emailRedirectTo: `${window.location.origin}/feed`,
-            data: { username },
+            emailRedirectTo: `${window.location.origin}/dashboard`,
+            data: {  
+              full_name: username,   
+              avatar_url: null  
+            },
+           
           },
         });
+
+        console.log("Signup data:", data);
+        console.log("Signup error:", error);
+
         if (error) throw error;
-        setMessage("Check your email to verify your account.");
+
+        setMessage("Check your email to verify ydashboardour account.");
         setIsSignIn(true);
       }
     } catch (err) {
