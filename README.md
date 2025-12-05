@@ -2,8 +2,7 @@
 
 **Setlinn** is the world's largest migration support community platform dedicated to helping migrants settle into their new lives in Germany and beyond. We connect global migrants through shared experiences, verified resources, and ongoing support — from residence permits to housing, jobs, language learning, and community.
 
-Live Demo: https://setlinn-krw2.vercel.app/ 
-(Replace with your actual Vercel URL once deployed)
+Live Demo: https://setlinn-krw2.vercel.app/
 
 ---
 
