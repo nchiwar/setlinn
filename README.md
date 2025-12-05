@@ -23,7 +23,7 @@ Live Demo: https://setlinn-krw2.vercel.app/
 
 - **Frontend**: React.js + Vite
 - **Routing**: React Router v6
-- **Styling**: CSS Modules (scalable & maintainable)
+- **Styling**: Tailwind CSS (scalable & maintainable)
 - **Deployment**: Vercel (instant previews & global CDN)
 - **State Management**: React Hooks (Context API ready for future scaling)
 - **Future-Ready**: Supabase integration in progress (authentication, database, storage)
